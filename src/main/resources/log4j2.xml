@@ -6,16 +6,25 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="java.sql" level="DEBUG" additivity="false">
+<!--         <Logger name="java.sql" level="DEBUG" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
         <Logger name="egovframework" level="DEBUG" additivity="false">
             <AppenderRef ref="console" />
         </Logger>
-		  <!-- log SQL with timing information, post execution -->
+		  log SQL with timing information, post execution
 	    <Logger name="jdbc.sqltiming" level="DEBUG" additivity="false">
 	        <AppenderRef ref="console" />
-	    </Logger>
+	    </Logger> -->
+	    
+	  <Logger name="jdbc.sqlonly" level="off" /> 
+	  <Logger name="jdbc.sqltiming" level="info" />
+	  <Logger name="jdbc.audit" level="off" /> 
+	  <Logger name="jdbc.resultset" level="off" /> 
+	  <Logger name="jdbc.resultsettable" level="info" /> 
+	  <Logger name="jdbc.connection" level="off" />
+
+	    
 	    <Logger name="org.springframework" level="INFO" additivity="false">
 	        <AppenderRef ref="console" />
 	    </Logger>

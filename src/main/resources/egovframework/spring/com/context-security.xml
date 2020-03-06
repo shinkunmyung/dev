@@ -21,6 +21,7 @@
  	<security:http pattern="/js/**" security="none"/>
  	<security:http pattern="/resource/**" security="none"/>
  	<security:http pattern="\A/WEB-INF/jsp/.*\Z" request-matcher="regex" security="none"/>
+ 	<security:http pattern="\/uss/olp/qri/EgovQustnrRespondInfoList.do" security="none"/>
 
     <egov-security:config id="securityConfig"
 		loginUrl="/uat/uia/egovLoginUsr.do"
