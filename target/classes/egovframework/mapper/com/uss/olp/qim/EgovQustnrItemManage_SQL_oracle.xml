@@ -112,6 +112,9 @@
 		 	<if test="searchCondition == 'FRST_REGISTER_ID'">
 		 		AND  FRST_REGISTER_ID IN (SELECT ESNTL_ID FROM COMTNEMPLYRINFO WHERE USER_NM LIKE '%' || #{searchKeyword} || '%' )
 		 	</if>
+		 	<if test="searchCondition == 'QUSTNR_QESITM_ID'">
+		 		AND  QUSTNR_QESITM_ID =  #{searchKeyword} 
+		 	</if>
 	 	
 	 </if>
 
@@ -142,6 +145,9 @@
 		 	
 		 	<if test="searchCondition == 'FRST_REGISTER_ID'">
 		 		AND  FRST_REGISTER_ID IN (SELECT ESNTL_ID FROM COMTNEMPLYRINFO WHERE USER_NM LIKE '%' || #{searchKeyword} || '%' )
+		 	</if>
+		 	<if test="searchCondition == 'QUSTNR_QESITM_ID'">
+		 		AND  QUSTNR_QESITM_ID =  #{searchKeyword} 
 		 	</if>
 	 	
 	 </if>

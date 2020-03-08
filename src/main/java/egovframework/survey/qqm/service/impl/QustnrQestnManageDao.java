@@ -55,7 +55,8 @@ public class QustnrQestnManageDao extends EgovComAbstractDAO {
 	 * @throws Exception
 	 */
 	public Map<?, ?> selectQustnrManageQestnrSj(Map<?, ?> map) throws Exception{
-		return (Map<?, ?>)selectOne("QustnrQestnManage.selectQustnrManageQestnrSj", map);
+//		return (Map<?, ?>)selectOne("QustnrQestnManage.selectQustnrManageQestnrSj", map);
+		return (Map<?, ?>)selectOne("QustnrQestnManage.selectQustnrManageQESTNR_SJ", map);
 	}
 
 

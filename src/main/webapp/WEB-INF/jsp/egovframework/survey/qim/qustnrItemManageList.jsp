@@ -39,7 +39,8 @@ function linkPage(pageNo){
  * 등록 처리 함수 
  ******************************************************** */
 function fn_egov_regist_QustnrItemManage(){
-	location.href = "<c:url value='/survey/qim/qustnrItemManageRegist.do' />";
+	document.listForm.action = "<c:url value='/survey/qim/qustnrItemManageRegist.do' />";
+   	document.listForm.submit();
 }
 /* ********************************************************
  * 수정 처리 함수
@@ -112,20 +113,26 @@ function fn_egov_list_QustnrQestnManag(qestnrId, qestnrTmplatId){
 	<!-- 검색영역 -->
 	<div class="search_box" title="<spring:message code='common.searchCondition.msg' />">
 		<ul>
-			<li>
+		<li>            
+			설문조사 이름 : ${qustnrQestnManageDetail[0].qestnrSj}, 항목이름 : ${qustnrQestnManageDetail[0].qestnCn}
+		</li>
+		
+<%-- 			<li>
 				<select name="searchCondition" title="<spring:message code='title.searchCondition' /> <spring:message code='input.cSelect' />">
 					<option selected value=''>--<spring:message code="input.select" />--</option><!-- 선택하세요 -->
 					<option value="IEM_CN"  <c:if test="${searchVO.searchCondition == 'IEM_CN'}">selected="selected"</c:if> ><spring:message code="comUssOlpQim.searchCondition.IEM_CN" /></option><!-- 항목내용 -->
 					<option value="FRST_REGISTER_ID"  <c:if test="${searchVO.searchCondition == 'FRST_REGISTER_ID'}">selected="selected"</c:if> ><spring:message code="comUssOlpQim.searchCondition.FRST_REGISTER_ID" /></option><!-- 등록자 -->
+					<option value="QUSTNR_QESITM_ID"  <c:if test="${searchVO.searchCondition == 'QUSTNR_QESITM_ID'}">selected="selected"</c:if> >설문문항ID</option><!-- 등록자 -->
 				</select>
-			</li>
+			</li> --%>
 			<!-- 검색키워드 및 조회버튼 -->
 			<li>
 				<!-- 조회버튼 -->
-				<input class="s_input" name="searchKeyword" type="text"  size="35" title="<spring:message code='title.search' /> <spring:message code='input.input' />" value="<c:out value='${searchVO.searchKeyword}'/>"  maxlength="155" >
-				<input type="submit" class="s_btn" value="<spring:message code='button.inquire' />" title="<spring:message code='title.inquire' /> <spring:message code='input.button' />" onclick="fn_egov_search_QustnrItemManage(); return false;" />
+<%-- 				<input class="s_input" name="searchKeyword" type="text"  size="35" title="<spring:message code='title.search' /> <spring:message code='input.input' />" value="<c:out value='${searchVO.searchKeyword}'/>"  maxlength="155" > --%>
+<%-- 				<input type="submit" class="s_btn" value="<spring:message code='button.inquire' />" title="<spring:message code='title.inquire' /> <spring:message code='input.button' />" onclick="fn_egov_search_QustnrItemManage(); return false;" /> --%>
 				<!-- 등록버튼 -->
-				<span class="btn_b"> <a href="<c:url value='/survey/qim/qustnrItemManageRegist.do'/>" title="<spring:message code='button.create' /> <spring:message code='input.button' />"><spring:message code="button.create" /></a></span> 
+<%-- 				<span class="btn_b"> <a href="<c:url value='/survey/qim/qustnrItemManageRegist.do'/>" title="<spring:message code='button.create' /> <spring:message code='input.button' />"><spring:message code="button.create" /></a></span>  --%>
+				<span class="btn_b"> <a href="javascript:void(0);" onclick="fn_egov_regist_QustnrItemManage();" title="<spring:message code='button.create' /> <spring:message code='input.button' />"><spring:message code="button.create" /></a></span> 
 			</li>
 		</ul>
 	</div>
@@ -194,6 +201,8 @@ function fn_egov_list_QustnrQestnManag(qestnrId, qestnrTmplatId){
 <input name="qustnrIemId" type="hidden" value="${qustnrItemManageVO.qustnrIemId }">
 <input name="searchMode" type="hidden" value="${qustnrQestnManageVO.searchMode}">
 <input name="pageIndex" type="hidden" value="<c:out value='${searchVO.pageIndex}'/>">	
+<input name="qestnrTmplatId" type="hidden" value="<c:out value='${qustnrQestnManageVO.qestnrTmplatId}' />">
+qustnrQestnManageVO
 
 </form>
 

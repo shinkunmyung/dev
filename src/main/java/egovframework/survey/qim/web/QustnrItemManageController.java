@@ -13,6 +13,8 @@ import egovframework.rte.fdl.property.EgovPropertyService;
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import egovframework.survey.qim.service.QustnrItemManageService;
 import egovframework.survey.qim.service.QustnrItemManageVO;
+import egovframework.survey.qqm.service.QustnrQestnManageService;
+import egovframework.survey.qqm.service.QustnrQestnManageVO;
 
 import javax.annotation.Resource;
 
@@ -62,6 +64,9 @@ public class QustnrItemManageController {
     /** EgovPropertyService */
     @Resource(name = "propertiesService")
     protected EgovPropertyService propertiesService;
+    
+	@Resource(name = "qustnrQestnManageService")
+	private QustnrQestnManageService qustnrQestnManageService;
 
 	/**
 	 * 설문항목 팝업 목록을 조회한다.
@@ -127,6 +132,7 @@ public class QustnrItemManageController {
 			@ModelAttribute("searchVO") ComDefaultVO searchVO,
 			@RequestParam Map<?, ?> commandMap,
 			QustnrItemManageVO qustnrItemManageVO,
+			@ModelAttribute("qustnrQestnManageVO") QustnrQestnManageVO qustnrQestnManageVO,
     		ModelMap model)
     throws Exception {
 
@@ -161,6 +167,8 @@ public class QustnrItemManageController {
         int totCnt = qustnrItemManageService.selectQustnrItemManageListCnt(searchVO);
 		paginationInfo.setTotalRecordCount(totCnt);
         model.addAttribute("paginationInfo", paginationInfo);
+        List<?> qustnrQestnManageDetail = qustnrQestnManageService.selectQustnrQestnManageDetail(qustnrQestnManageVO);
+        model.addAttribute("qustnrQestnManageDetail", qustnrQestnManageDetail);
 
 		return "egovframework/survey/qim/qustnrItemManageList";
 	}
@@ -277,6 +285,7 @@ public class QustnrItemManageController {
 			@ModelAttribute("searchVO") ComDefaultVO searchVO,
 			@RequestParam Map<?, ?> commandMap,
 			@ModelAttribute("qustnrItemManageVO") QustnrItemManageVO qustnrItemManageVO,
+			@ModelAttribute("qustnrQestnManageVO") QustnrQestnManageVO qustnrQestnManageVO,
 			BindingResult bindingResult,
     		ModelMap model)
     throws Exception {
@@ -317,6 +326,8 @@ public class QustnrItemManageController {
             List<?> listQustnrTmplat = qustnrItemManageService.selectQustnrTmplatManageList(qustnrItemManageVO);
             model.addAttribute("listQustnrTmplat", listQustnrTmplat);
         }
+        List<?> qustnrQestnManageDetail = qustnrQestnManageService.selectQustnrQestnManageDetail(qustnrQestnManageVO);
+        model.addAttribute("qustnrQestnManageDetail", qustnrQestnManageDetail);
 
 		return sLocationUrl;
 	}

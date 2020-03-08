@@ -194,11 +194,15 @@ function fn_egov_search_QustnrQestnManage(){
 		<!-- onLoad="if(this.width>65){this.width=65}" -->
 		<!-- 질문항목 -->
 		<td class="lt_text3">
+		<c:if test="${resultInfo.qestnTyCode == '1'}">
 			<form name="subForm" method="post" action="<c:url value='/survey/qim/qustnrItemManageList.do'/>">
-		    <!-- <input name="qestnrQesitmId" id="qestnrQesitmId" type="hidden" value="${resultInfo.qestnrQesitmId}">  -->
+		    <input name="qestnrQesitmId" id="qestnrQesitmId" type="hidden" value="${resultInfo.qestnrQesitmId}"> 
+		    <input name="qestnrTmplatId" type="hidden" value="${qustnrQestnManageVO.qestnrTmplatId}">
+		    <input name="qestnrId" type="hidden" value="${qustnrQestnManageVO.qestnrId}">
 		    <input name="searchMode" type="hidden" value="Y">
 		    <span class="btn_b"><input type="submit" class="btn_submit" style="width:40px;border:solid 0px black;text-align:left;" value="<spring:message code='comUssOlpQqm.value.view'/>"></span><!-- value="보기" -->
 		    </form>
+	    </c:if>
 		</td>
 		<!-- 통계  -->
 	  	<td class="lt_text3">
