@@ -25,7 +25,7 @@ import org.springframework.stereotype.Repository;
  *
  * </pre>
  */
-@Repository("qustnrQestnManageDao")
+//@Repository("qustnrQestnManageDao")
 public class QustnrQestnManageDao extends EgovComAbstractDAO {
 
     /**

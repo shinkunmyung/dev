@@ -101,6 +101,14 @@ link:hover { color: #000000; text-decoration: none; }
 		<li><a href="${pageContext.request.contextPath}<c:out value="${result.listUrl}"/>" target="_content" class="link"> <c:out value="${result.order}"/>. <spring:message code="${componentMsgKey}"/><!-- <c:out value="${result.name}"/> --></a></li>
 		</ul>
 	</c:forEach>
+	
+	
+			<li>
+				<strong class="left_title_strong"><strong class="top_title_strong">설문조사</strong></strong> <!-- 요소기술 -->
+			</li>
+		<ul class="2depth">
+		<li><a href="${pageContext.request.contextPath}/survey/qmc/qustnrManageList.do" target="_content" class="link">설문조사</a></li>
+		</ul>
 </ul>
 
 </body>

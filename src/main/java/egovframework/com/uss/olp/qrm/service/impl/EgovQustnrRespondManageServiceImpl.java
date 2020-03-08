@@ -28,7 +28,7 @@ import org.springframework.stereotype.Service;
  *
  * </pre>
  */
-@Service("egovQustnrRespondManageService")
+//@Service("egovQustnrRespondManageService")
 public class EgovQustnrRespondManageServiceImpl extends EgovAbstractServiceImpl implements EgovQustnrRespondManageService{
 
 	//final private Log log = LogFactory.getLog(this.getClass());

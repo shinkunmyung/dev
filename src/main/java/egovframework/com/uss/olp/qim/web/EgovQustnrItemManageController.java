@@ -44,7 +44,7 @@ import org.springmodules.validation.commons.DefaultBeanValidator;
  * </pre>
  */
 
-@Controller
+//@Controller
 public class EgovQustnrItemManageController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(EgovQustnrItemManageController.class);
